@@ -4,7 +4,6 @@ services:
   frontend:
     build: 
       context: ./frontend
-    command: sh -c "certbot --nginx -d thexstech.tk -d www.thexstech.tk -m xaadu1@gmail.com --redirect --agree-tos --no-eff-email"
     volumes:
       - ./frontend:/var/www/html
     ports:

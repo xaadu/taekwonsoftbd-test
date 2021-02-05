@@ -15,4 +15,9 @@ EXPOSE 80 443
 
 STOPSIGNAL SIGTERM
 
-CMD ["nginx", "-g", "daemon off;"]
+#CMD ["nginx", "-g", "daemon off;"]
+
+ENTRYPOINT nginx \
+    && certbot --nginx -d thexstech.tk -d www.thexstech.tk -m xaadu1@gmail.com --no-redirect --agree-tos --no-eff-email --test-cert \
+    && nginx -s stop \
+    && nginx -g "daemon off;"
