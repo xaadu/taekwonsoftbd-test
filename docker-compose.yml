@@ -32,7 +32,7 @@ services:
       - "80:80"
       - "443:443"
     environment: 
-      - CERTBOT_MODE=STAGING
+      - CERTBOT_MODE=PROD
 
 volumes: 
   static_data:
