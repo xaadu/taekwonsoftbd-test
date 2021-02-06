@@ -30,6 +30,7 @@ services:
       - media_data:/mediafiles
     ports:
       - "80:80"
+      - "443:443"
     environment: 
       - CERTBOT_MODE=STAGING
 
