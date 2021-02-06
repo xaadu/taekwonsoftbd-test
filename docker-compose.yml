@@ -31,7 +31,7 @@ services:
     ports:
       - "80:80"
     environment: 
-      - $CERTBOT_MODE=STAGING
+      - CERTBOT_MODE=STAGING
 
 volumes: 
   static_data:
