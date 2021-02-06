@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% comment %} title section {% endcomment %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% comment %} Content Section {% endcomment %}
+
+{% block content %}
+        <main role="main">
+
+      <section class="jumbotron-fluid text-center pt-5">
+        <div class="container">
+          <h1 class="jumbotron-heading">{{title}}</h1>
+          <p class="lead text-muted">{{description}}</p>
+          <p>
+            <a href="https://www.fiverr.com/sarker_majid?up_rollout=true" class="btn btn-danger my-2">Hire me</a>
+            <a href="contact/" class="btn btn-info my-2 ml-3">Contact</a>
+          </p>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+          {% for items in data%}
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img style=width="100%" height="200px" src= {{items.image.url}} alt=""></img>
+                <div class="card-body">
+                  <h3>{{ items.title}}</h3>
+                  <p class="card-text">{{ items.summary}}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">{{ items.datetime}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p class="text-center text-danger pt-3">Copyright by &copy; Sarker Majid {% now "Y" %}</p>
+      </div>
+    </footer>
+{% endblock  %}

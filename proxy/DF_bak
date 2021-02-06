@@ -1,0 +1,20 @@
+FROM nginxinc/nginx-unprivileged:1-alpine
+
+COPY ./default.conf /etc/nginx/conf.d/default.conf
+COPY ./uwsgi_params /etc/nginx/uwsgi_params
+
+USER root
+
+RUN apk add certbot certbot-nginx
+
+RUN nginx
+RUN certbot --nginx -d thexstech.tk -d www.thexstech.tk -m xaadu1@gmail.com --no-redirect --agree-tos --no-eff-email --test-cert
+RUN nginx -s stop
+
+EXPOSE 8080 443
+
+STOPSIGNAL SIGTERM
+
+USER nginx
+
+#CMD ["nginx", "-g", "daemon off;"]

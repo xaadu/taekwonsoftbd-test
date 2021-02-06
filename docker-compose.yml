@@ -1,11 +1,38 @@
 version: "3.7"
 
 services: 
-  frontend:
+  #frontend:
+  #  build: 
+  #    context: ./frontend
+  #  volumes:
+  #    - ./frontend:/var/www/html
+  #  ports:
+  #    - "80:80"
+  #    - "443:443"
+  app:
     build: 
-      context: ./frontend
+      context: ./app
+    ports: 
+      - "8000:8000"
+    volumes: 
+      #- ./app:/app
+      - static_data:/staticfiles
+      - media_data:/mediafiles
+    #command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    
+  proxy:
+    depends_on: 
+      - app
+    build: 
+      context: ./proxy
     volumes:
-      - ./frontend:/var/www/html
+      - static_data:/staticfiles
+      - media_data:/mediafiles
     ports:
       - "80:80"
-      - "443:443"
+    environment: 
+      - $CERTBOT_MODE=STAGING
+
+volumes: 
+  static_data:
+  media_data:

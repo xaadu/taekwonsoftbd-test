@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% comment %} title section {% endcomment %}
+
+{% block title %}
+    contact
+{% endblock %}
+
+{% comment %} content section {% endcomment %}
+
+{% block content %}
+    <section class="container mt-5">
+   <!--Contact heading-->
+   <div class="row">
+      <!--Grid column-->
+      <div class="col-sm-12 mb-4 col-md-5">
+         <!--Form with header-->
+         <form action="" method="post">
+         {% csrf_token %}
+
+         <div class="card border-dark rounded-0">
+            <div class="card-header p-0">
+               <div class="bg-dark text-white text-center py-2">
+                  <h3><i class="fa fa-envelope"></i>Contact Form</h3>
+               </div>
+            </div>
+            <div class="card-body p-3">
+               
+                  <div class="form-group">
+                  <label> Full Name </label>
+                  <div class="input-group">
+                     <input value="" type="text" name="name" class="form-control" id="inlineFormInputGroupUsername" placeholder="Your name">
+                  </div>
+				</div>
+                  <div class="form-group">
+                     <label>E-mail</label>
+                     <div class="input-group mb-2 mb-sm-0">
+                        <input type="email" value="" name="email" class="form-control" id="inlineFormInputGroupUsername" placeholder="Email">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label>Subject</label>
+                     <div class="input-group mb-2 mb-sm-0">
+                        <input type="text" name="subject" class="form-control" id="inlineFormInputGroupUsername" placeholder="Subject">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label>Message</label>
+                     <div class="input-group mb-2 mb-sm-0">
+                        <input type="text" class="form-control" name="message">
+                     </div>
+                  </div>
+                  <div class="text-center">
+                     <input type="submit" name="submit" value="Submit" class="btn btn-dark btn-block rounded-3 py-2">
+                  </div>
+             
+			     </div>
+				  
+            </div>
+         </div>
+         </form>
+      <!--Grid column-->
+	  
+      <!--Grid column-->
+      <div class="col-sm-12 col-md-7">
+         <!--Google map-->
+         <div class="mb-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.8223974903!2d90.2792398547864!3d23.780887453399956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1604812052161!5m2!1sen!2sbd" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+         </div>
+         <!--Buttons-->
+         <div class="row text-center">
+            <div class="col-md-4">
+               <h5>Address</h5>
+               <p>Dhaka,Bangladesh</p>
+            </div>
+            <div class="col-md-4">
+               <h5>Phone</h5>
+               <p>01521429619</p>
+            </div>
+            <div class="col-md-4">
+               <h5>E-mail</h5>
+               <p>majidursarkar333@gmail.com</p>
+            </div>
+         </div>
+      </div>
+      <!--Grid column-->
+	    </div>
+</section>
+{% endblock %}

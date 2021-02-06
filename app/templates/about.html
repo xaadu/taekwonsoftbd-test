@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% comment %} Staet title {% endcomment %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% comment %} Content title {% endcomment %}
+
+{% block content %}
+
+    <div class="div text-center pt-5">
+        <img style="height:300px; width:300px" src="{% static 'img/pic1.jpg' %}" alt="">
+    </div>
+    <h2 class="text-center text-dark pt-5">{{title}}</h2>
+    <hr>
+    <p>{{description}}</p>
+    
+
+{% endblock  %}
