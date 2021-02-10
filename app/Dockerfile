@@ -11,17 +11,14 @@ RUN mkdir /app
 COPY . /app
 WORKDIR /app
 
-RUN mkdir -p /staticfiles
-RUN mkdir -p /mediafiles
-COPY ./media /mediafiles
+RUN mkdir -p /staticfiles/static
+RUN mkdir -p /staticfiles/media
+COPY ./media /staticfiles/media
 
 RUN adduser -D user
 
 RUN chown -R user:user /staticfiles
 RUN chmod -R 755 /staticfiles
-
-RUN chown -R user:user /mediafiles
-RUN chmod -R 755 /mediafiles
 
 RUN chown -R user:user /app
 RUN chmod -R 755 /app

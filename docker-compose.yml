@@ -16,8 +16,7 @@ services:
       - "8000:8000"
     volumes: 
       #- ./app:/app
-      - static_data:/staticfiles
-      - media_data:/mediafiles
+      - data:/staticfiles
     #command: sh -c "python manage.py runserver 0.0.0.0:8000"
     
   proxy:
@@ -26,8 +25,7 @@ services:
     build: 
       context: ./proxy
     volumes:
-      - static_data:/staticfiles
-      - media_data:/mediafiles
+      - data:/staticfiles
     ports:
       - "80:80"
       - "443:443"
@@ -35,5 +33,4 @@ services:
       - CERTBOT_MODE=STAGING
 
 volumes: 
-  static_data:
-  media_data:
+  data:
