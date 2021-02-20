@@ -5,8 +5,12 @@ ENV REGISTER_EMAIL xaadu1@gmail.com
 ENV DOMAINS www.thexstech.tk,thexstech.tk
 
 COPY webconfig/nginx.conf /etc/nginx/nginx.conf
-RUN cp -u webconfig/dummy_fullchain.pem /etc/letsencrypt/live/generatedcert/fullchain.pem
-RUN cp -u webconfig/dummy_privkey.pem /etc/letsencrypt/live/generatedcert/privkey.pem
+
+COPY webconfig/dummy_fullchain.pem certs/fullchain.pem
+COPY webconfig/dummy_privkey.pem certs/privkey.pem
+
+RUN cp -u certs/fullchain.pem /etc/letsencrypt/live/generatedcert/fullchain.pem
+RUN cp -u certs/privkey.pem /etc/letsencrypt/live/generatedcert/privkey.pem
 
 COPY shell/init_certbot.sh /home/init_certbot.sh
 COPY shell/init_certbot_staging.sh /home/init_certbot_staging.sh
