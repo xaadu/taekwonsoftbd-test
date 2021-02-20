@@ -26,6 +26,7 @@ services:
       context: ./proxy
     volumes:
       - data:/staticfiles
+      - ./certtificates:/etc/letsencrypt/live/generatedcert/
     ports:
       - "80:80"
       - "443:443"
