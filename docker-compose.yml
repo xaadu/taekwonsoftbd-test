@@ -26,13 +26,14 @@ services:
       context: ./proxy
     volumes:
       - data:/staticfiles
-      - ./certtificates:/etc/letsencrypt/live/generatedcert/
+      - certificates:/etc/letsencrypt/live/generatedcert/
     ports:
       - "80:80"
       - "443:443"
     environment: 
       # - CERTBOT_MODE=STAGING
-      - CERTBOT_MODE=PROD
+      # - CERTBOT_MODE=PROD
 
 volumes: 
   data:
+  certtificates:
